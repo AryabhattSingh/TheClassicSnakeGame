@@ -1,5 +1,5 @@
 import time
-from turtle import Screen
+from turtle import Screen, Turtle
 
 from food import Food
 from scoreboard import Scoreboard
@@ -23,7 +23,15 @@ food = Food()
 score = Scoreboard()
 
 
+def game_start_instruction(turtle_object):
+    turtle_object.color("white")
+    turtle_object.goto(-20, 10)
+    turtle_object.write("Press SPACE BAR to start")
+
+
 def play():
+    turtle_obj.clear()
+    turtle_obj.hideturtle()
     game_on = True
     while game_on:
         screen.update()
@@ -52,6 +60,9 @@ def play():
 screen.update()
 
 screen.listen()
+
+turtle_obj = Turtle()
+game_start_instruction(turtle_obj)
 
 screen.onkey(play, "space")
 screen.onkey(snake.upwards, "Up")
