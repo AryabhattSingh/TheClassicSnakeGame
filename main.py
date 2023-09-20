@@ -7,7 +7,6 @@ from snake import Snake
 from wall import Wall
 
 WALL_BOUNDARY = 290
-SNAKE_SPEED = 0.1
 
 screen = Screen()
 screen.setup(width=600, height=600)
@@ -29,13 +28,24 @@ def game_start_instruction(turtle_object):
     turtle_object.write("Press SPACE BAR to start")
 
 
+def update_snake_speed(score_obj, snake_speed):
+    game_score = score_obj.score
+    if game_score > 0 and game_score % 10 == 0:
+        speed_increase_factor = game_score / 10
+        snake_speed = 0.1 - (0.001 * speed_increase_factor)
+    return snake_speed
+
+
 def play():
     turtle_obj.clear()
     turtle_obj.hideturtle()
+    snake_speed = 0.1
     game_on = True
+
     while game_on:
         screen.update()
-        time.sleep(SNAKE_SPEED)
+        snake_speed = update_snake_speed(score, snake_speed)
+        time.sleep(snake_speed)
         snake.move()
 
         # Detect collision with wall
@@ -58,7 +68,6 @@ def play():
 
 
 screen.update()
-
 screen.listen()
 
 turtle_obj = Turtle()
