@@ -1,6 +1,7 @@
 import time
 from turtle import Screen
 
+from snake import Snake
 from wall import Wall
 
 screen = Screen()
@@ -12,6 +13,7 @@ screen.title("My Snake Game")
 screen.tracer(0)
 
 wall = Wall()
+snake = Snake()
 
 screen.update()
 
