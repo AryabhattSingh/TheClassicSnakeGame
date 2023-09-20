@@ -53,4 +53,10 @@ screen.update()
 
 screen.listen()
 
+screen.onkey(play, "space")
+screen.onkey(snake.upwards, "Up")
+screen.onkey(snake.downwards, "Down")
+screen.onkey(snake.left, "Left")
+screen.onkey(snake.right, "Right")
+
 screen.exitonclick()
