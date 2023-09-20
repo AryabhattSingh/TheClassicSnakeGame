@@ -1,6 +1,7 @@
 import time
 from turtle import Screen
 
+from food import Food
 from snake import Snake
 from wall import Wall
 
@@ -14,6 +15,7 @@ screen.tracer(0)
 
 wall = Wall()
 snake = Snake()
+food = Food()
 
 screen.update()
 
